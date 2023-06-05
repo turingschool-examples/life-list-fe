@@ -1,11 +1,13 @@
-function BirdsContainer() {
+import Bird from './Bird';
+
+function BirdsContainer({ birds }) {
+  const birdCards = birds.map(bird => {
+    return <Bird key={bird.id} bird={bird} />
+  })
+  
   return (
     <section>
-      <article>
-        <h3>Wren</h3>
-        <p>Date: 05-22-2023</p>
-        <p>Place: Under the sea.</p>
-      </article>
+      {birdCards}
     </section>
   )
 }
