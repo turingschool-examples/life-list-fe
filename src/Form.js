@@ -1,14 +1,46 @@
-function Form() {
+import { useState } from 'react';
+
+function Form({ submitBird }) {
+  const [formData, setFormData] = useState({
+    birdName: "",
+    date: "",
+    place: ""
+  });
+  
+  const setValueFromForm = (event) => {
+    setFormData({...formData, [event.target.name]: event.target.value})
+  }
+
   return (
     <form>
-      <label for="bird-name">Name:</label>
-      <input name="bird-name" type="text" placeholder="Bird name..." />
+      <label htmlFor="birdName">Name:</label>
+      <input 
+        name="birdName"
+        type="text"
+        placeholder="Bird Name"
+        onChange={setValueFromForm} 
+        value={formData.birdName}
+      />
       
-      <label for="date">Date:</label>
-      <input name="date" type="text" placeholder="Date spotted..." />
+      <label htmlFor="date">Date:</label>
+      <input 
+        name="date" 
+        type="date" 
+        placeholder="Date Spotted" 
+        onChange={setValueFromForm}
+        value={formData.date}
+      />
       
-      <label for="place">Place:</label>
-      <input name="place" type="text" placeholder="Place spotted..." />
+      <label htmlFor="place">Place:</label>
+      <input 
+        name="place" 
+        type="text" 
+        placeholder="Place Spotted" 
+        onChange={setValueFromForm}
+        value={formData.place}
+      />
+
+      <button onClick={(event) => submitBird(event, formData)} >Add Bird!</button>
     </form>
   )
 }
