@@ -1,22 +1,28 @@
 import './App.css';
 import Form from './Form';
 import BirdsContainer from './BirdsContainer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getBirds } from './apiCalls';
 
 function App() {
-  const [birds, setBirds] = useState([{id: 1, birdName: 'Wren', date: '05-28-2023', place: 'backyard'}]);
+  const [birds, setBirds] = useState([]);
 
-  const submitBird = (event, newBird) => {
-    event.preventDefault();
+  useEffect(() => {
+    getBirds()
+      .then(birdData => setBirds(birdData.birds))
+      .catch(err => console.error(err));
+  }, []);
+
+  const addBird = newBird => {
     setBirds([...birds, newBird]);
-  }
-  
+  };
+
   return (
     <div className="App">
       <h1>Life List</h1>
       <p>Record the birds you've seen.</p>
 
-      <Form submitBird={submitBird}/>
+      <Form addBird={addBird}/>
 
       <BirdsContainer birds={birds}/>
     </div>

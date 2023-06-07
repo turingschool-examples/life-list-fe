@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { postBird } from './apiCalls';
 
-function Form({ submitBird }) {
+function Form({ addBird }) {
   const [formData, setFormData] = useState({
     birdName: "",
     date: "",
@@ -9,6 +10,16 @@ function Form({ submitBird }) {
   
   const setValueFromForm = (event) => {
     setFormData({...formData, [event.target.name]: event.target.value})
+  }
+
+  const submitBird = (event, formData) => {
+    event.preventDefault();
+    postBird(formData)
+      .then(postBirdResult => {
+        addBird(postBirdResult);
+        setFormData({ birdName: "", date: "", place: "" });
+      })
+      .catch(err => console.error(err));
   }
 
   return (
