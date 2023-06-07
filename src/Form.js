@@ -7,19 +7,31 @@ function Form({ addBird }) {
     date: "",
     place: ""
   });
+
+  const [alert, setAlert] = useState("");
   
   const setValueFromForm = (event) => {
-    setFormData({...formData, [event.target.name]: event.target.value})
+    setAlert("");
+    setFormData({...formData, [event.target.name]: event.target.value});
+  }
+
+  const isFormComplete = () => {
+    return !Object.values(formData).some(inputData => inputData === "");
   }
 
   const submitBird = (event, formData) => {
     event.preventDefault();
-    postBird(formData)
+  
+    if (isFormComplete()) {
+      postBird(formData)
       .then(postBirdResult => {
         addBird(postBirdResult);
         setFormData({ birdName: "", date: "", place: "" });
       })
       .catch(err => console.error(err));
+    } else {
+      setAlert("Form is incomplete. All fields need to be filled in.");
+    }
   }
 
   return (
@@ -50,6 +62,8 @@ function Form({ addBird }) {
         onChange={setValueFromForm}
         value={formData.place}
       />
+
+      <p>{alert}</p>
 
       <button onClick={(event) => submitBird(event, formData)} >Add Bird!</button>
     </form>
