@@ -19,10 +19,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Life List</h1>
-      <p>Record the birds you've seen.</p>
+      <div className="banner">
+        <h1>Life List</h1>
+        <h3>Record the birds you've seen!</h3>
 
-      <Form addBird={addBird}/>
+        <Form addBird={addBird}/>
+      </div>
 
       <BirdsContainer birds={birds}/>
     </div>

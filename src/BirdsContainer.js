@@ -6,7 +6,7 @@ function BirdsContainer({ birds }) {
   })
   
   return (
-    <section>
+    <section className="birds-container">
       {birdCards}
     </section>
   )
