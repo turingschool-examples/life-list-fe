@@ -16,6 +16,7 @@ This app is designed t be used as practice for testing GET and POST requests. Th
 1. Explore this application's codebase to see how things are connected and how data moves throughout the applications.
 1. Install a testing library (e.g. Cypress).
 1. Set up tests for viewing birds (GET request) and adding a bird to the life list (POST request).
+
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
