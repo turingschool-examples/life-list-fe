@@ -19,20 +19,7 @@ function Form({ addBird }) {
     return !Object.values(formData).some(inputData => inputData === "");
   }
 
-  const submitBird = (event, formData) => {
-    event.preventDefault();
   
-    if (isFormComplete()) {
-      postBird(formData)
-      .then(postBirdResult => {
-        addBird(postBirdResult);
-        setFormData({ birdName: "", date: "", place: "" });
-      })
-      .catch(err => console.error(err));
-    } else {
-      setAlert("Form is incomplete. All fields need to be filled in.");
-    }
-  }
 
   return (
     <form>
