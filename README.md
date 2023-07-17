@@ -6,6 +6,7 @@ This app is designed t be used as practice for testing GET and POST requests. Th
 
 1. Clone this repo
 1. Change into the cloned repo directory
+1. Checkout to post branch.
 1. Run `npm install` to install dependencies
 1. Run `npm start` to start the front-end development server
 1. Setup the backend repo following the directions in the repo [here](https://github.com/turingschool-examples/life-list-api)
