@@ -12,7 +12,7 @@ This app is designed t be used as practice for testing GET and POST requests. Th
 
 ## Practice
 
-1. Explore this application's UI to see how it works. In order to test an app, you ned to know how it functions.
+1. Explore this application's UI to see how it works. In order to test an app, you need to know how it functions.
 1. Explore this application's codebase to see how things are connected and how data moves throughout the applications.
 1. Install a testing library (e.g. Cypress).
 1. Set up tests for viewing birds (GET request) and adding a bird to the life list (POST request).
